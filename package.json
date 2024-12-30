@@ -1,16 +1,39 @@
 {
+  "name": "web-scraper-api",
+  "version": "1.0.0",
+  "author": "Yuvraj Karna",
+  "description": "A Node.js-based web scraper API that uses Puppeteer for scraping data from websites and stores the results in MongoDB. Includes endpoints for fetching stored data or performing real-time scrapes.",
   "type": "module",
+  "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js",
     "start": "node server.js"
   },
+  "keywords": [
+    "web-scraper",
+    "puppeteer",
+    "nodejs",
+    "express",
+    "mongodb",
+    "api",
+    "data-scraping"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YuvrajKarna/web-scraper-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YuvrajKarna/web-scraper-api/issues"
+  },
+  "homepage": "https://github.com/YuvrajKarna/web-scraper-api#readme",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mongoose": "^8.5.3",
+    "mongoose": "^8.9.2",
     "puppeteer": "^23.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
-  }
+  },
+  "license": "MIT"
 }

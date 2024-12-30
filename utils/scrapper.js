@@ -1,10 +1,9 @@
 import puppeteer from "puppeteer";
-
 import dotenv from "dotenv";
 dotenv.config();
 
-const WEBSITE_URL = process.env.WEBSITE_URL || "https://books.toscrape.com";
 async function scrape(totalPageNumber = 1) {
+  const WEBSITE_URL = process.env.WEBSITE_URL;
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -72,11 +71,5 @@ async function scrape(totalPageNumber = 1) {
   await browser.close();
   return allBooks;
 }
-
-// try {
-//   const result = await scrape(1);
-// } catch (error) {
-//   console.log("error", error);
-// }
 
 export { scrape };
