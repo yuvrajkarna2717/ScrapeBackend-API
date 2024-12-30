@@ -29,7 +29,7 @@ const bookSchema = new mongoose.Schema(
       type: String,
     },
   },
-  { timestamps: true } // Automatically adds `createdAt` and `updatedAt` fields
+  { timestamps: true }
 );
 
 const Book = mongoose.model("Book", bookSchema);

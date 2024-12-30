@@ -3,7 +3,8 @@ import { scrape } from "../utils/scrapper.js";
 
 const scrapeBookDetailsAndSaveToDB = async (req, res) => {
   try {
-    const allBooksDetails = await scrape();
+    const totalPages = 50;
+    const allBooksDetails = await scrape(totalPages);
 
     const result = await saveScrapeBookDetailsToDB(allBooksDetails);
 
