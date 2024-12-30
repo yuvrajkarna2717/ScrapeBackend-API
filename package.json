@@ -20,12 +20,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/YuvrajKarna/web-scraper-api.git"
+    "url": "https://github.com/yuvrajkarna2717/ScrapeBackend-API"
   },
   "bugs": {
-    "url": "https://github.com/YuvrajKarna/web-scraper-api/issues"
+    "url": "https://github.com/yuvrajkarna2717/ScrapeBackend-API/issues"
   },
-  "homepage": "https://github.com/YuvrajKarna/web-scraper-api#readme",
+  "homepage": "https://github.com/yuvrajkarna2717/ScrapeBackend-API/blob/main/README.md",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
