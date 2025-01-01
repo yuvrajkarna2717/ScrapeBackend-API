@@ -20,4 +20,12 @@ const scrapeBookDetailsAndSaveToDB = async (req, res) => {
   }
 };
 
+const scrapeAllBookDetails = async (req, res) => {};
+
+const scrapeBookDetailsFromPageXtoY = async (req, res) => {};
+
+const scrapeBookDetailsOnPageX = async (req, res) => {};
+
+const scrapeNBookDetails = async (req, res) => {};
+
 export { scrapeBookDetailsAndSaveToDB };
