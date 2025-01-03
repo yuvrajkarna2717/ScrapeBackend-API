@@ -1,16 +1,19 @@
 import { saveScrapeBookDetailsToDB } from "../utils/helper.js";
-import { scrape } from "../utils/scrapper.js";
+import {
+  scrape,
+  scrapeSinglePage,
+  scrapeFromPageXToPageY,
+} from "../utils/scrapper.js";
 
 const scrapeBookDetailsAndSaveToDB = async (req, res) => {
   try {
-    const totalPages = 50;
-    const allBooksDetails = await scrape(totalPages);
+    const allBooksDetails = await scrape();
 
     const result = await saveScrapeBookDetailsToDB(allBooksDetails);
 
     if (result.message === "success") {
       res.status(201).json({
-        success: "successfully store all the scraped book details to DB.",
+        message: "successfully store all the scraped book details to DB.",
       });
     } else {
       res.status(500).json({ error: result.error });
@@ -20,12 +23,57 @@ const scrapeBookDetailsAndSaveToDB = async (req, res) => {
   }
 };
 
-const scrapeAllBookDetails = async (req, res) => {};
+const scrapeAllBookDetails = async (req, res) => {
+  try {
+    const allBooksDetails = await scrape();
 
-const scrapeBookDetailsFromPageXtoY = async (req, res) => {};
+    res.status(201).json({
+      message: "success.",
+      data: allBooksDetails,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-const scrapeBookDetailsOnPageX = async (req, res) => {};
+const scrapeBookDetails = async (req, res) => {
+  let { pageX, pageY } = req.query;
 
-const scrapeNBookDetails = async (req, res) => {};
+  if (!pageX)
+    return res.status(420).json({
+      status: 420,
+      message: "please provide atleast pageX or both PageX and pageY.",
+    });
 
-export { scrapeBookDetailsAndSaveToDB };
+  if (pageY) {
+    try {
+      const result = await scrapeFromPageXToPageY(pageX, pageY);
+
+      return res.status(200).json({
+        status: 200,
+        message: "success",
+        data: result,
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  } else {
+    try {
+      const result = await scrapeSinglePage(pageX);
+      console.log("result: ", result);
+      return res.status(200).json({
+        status: 200,
+        message: "success",
+        data: result,
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+};
+
+export {
+  scrapeBookDetailsAndSaveToDB,
+  scrapeAllBookDetails,
+  scrapeBookDetails,
+};
