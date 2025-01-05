@@ -1,5 +1,16 @@
+import Book from "../models/bookModel";
+
 // Return all book details
 const getAllBooks = async (req, res) => {
+  try {
+    const result = Book.find();
+    res
+      .status(201)
+      .json({ status: 201, message: "all books fetched.", data: result });
+  } catch (error) {
+    res.status(500).json({ status: 500, message: "Internal server error." });
+  }
+
   res.status(201).json({ message: "all books fetched." });
 };
 
