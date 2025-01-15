@@ -29,6 +29,15 @@ app.use("/api/scrape", bookController);
 // fetch book details from mongoDB
 app.use("/api/fetch", fetchBookFromDBController);
 
+// to check health
+app.get("/healthz", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "All APIs are working fine.",
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // "/" it is just to give an idea that the project is up and running
 app.get("/", (req, res) => {
   res.status(200).json({
@@ -53,7 +62,7 @@ app.get("/", (req, res) => {
         },
       },
     ],
-    funFact: "api's are working.",
+    funFact: "api's are working fine.",
   });
 });
 
