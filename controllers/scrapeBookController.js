@@ -1,4 +1,7 @@
-import { saveScrapeBookDetailsToDB } from "../utils/helper.js";
+import {
+  saveScrapeBookDetailsToDB,
+  sanitizeAllBookDetails,
+} from "../utils/helper.js";
 import {
   scrape,
   scrapeSinglePage,
@@ -7,9 +10,11 @@ import {
 
 const scrapeBookDetailsAndSaveToDB = async (req, res) => {
   try {
-    const allBooksDetails = await scrape();
+    const allBooksDetails = await scrapeSinglePage(1);
 
-    const result = await saveScrapeBookDetailsToDB(allBooksDetails);
+    const sanitizedData = await sanitizeAllBookDetails(allBooksDetails);
+
+    const result = await saveScrapeBookDetailsToDB(sanitizedData);
 
     if (result.message === "success") {
       res.status(201).json({
