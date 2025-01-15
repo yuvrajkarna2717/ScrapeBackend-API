@@ -7,15 +7,15 @@ const bookSchema = new mongoose.Schema(
       required: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
     },
     stock: {
-      type: String,
+      type: Boolean,
       required: true,
     },
     rating: {
-      type: String,
+      type: Number,
       required: true,
     },
     link: {
