@@ -7,7 +7,10 @@
   "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage"
   },
   "keywords": [
     "web-scraper",
@@ -33,7 +36,10 @@
     "puppeteer": "^23.1.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "@vitest/coverage-v8": "^2.1.8",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0",
+    "vitest": "^2.1.8"
   },
   "license": "MIT"
 }
