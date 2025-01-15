@@ -4,7 +4,7 @@ const rateLimiter = (req, res, next) => {
   const ip = req.ip;
   const now = Date.now();
   const windowMs = 15 * 60 * 1000; // 15 minutes
-  const maxRequests = 5;
+  const maxRequests = process.env.MAX_REQUEST_PER_IP;
 
   if (!rateLimitMap.has(ip)) {
     rateLimitMap.set(ip, []);

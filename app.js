@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
         },
       },
     ],
-    fun: "api's are working.",
+    funFact: "api's are working.",
   });
 });
 
