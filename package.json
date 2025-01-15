@@ -1,5 +1,5 @@
 {
-  "name": "web-scraper-api",
+  "name": "scrapebackend-api",
   "version": "1.0.0",
   "author": "Yuvraj Karna",
   "description": "A Node.js-based web scraper API that uses Puppeteer for scraping data from websites and stores the results in MongoDB. Includes endpoints for fetching stored data or performing real-time scrapes.",
@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/yuvrajkarna2717/ScrapeBackend-API/issues"
   },
-  "homepage": "https://github.com/yuvrajkarna2717/ScrapeBackend-API/blob/main/README.md",
+  "homepage": "https://scrapebackend-api.onrender.com/",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

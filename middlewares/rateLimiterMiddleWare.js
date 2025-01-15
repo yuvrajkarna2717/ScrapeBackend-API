@@ -15,9 +15,10 @@ const rateLimiter = (req, res, next) => {
     .filter((time) => now - time < windowMs);
 
   if (timestamps.length >= maxRequests) {
-    return res
-      .status(429)
-      .json({ message: "Too many requests, please try again later." });
+    return res.status(429).json({
+      message: "Too many requests, please try again later.",
+      suggestion: `Please come after ${windowMs / 60 / 1000} minutes `,
+    });
   }
 
   timestamps.push(now);
