@@ -9,12 +9,17 @@ import { bookController } from "./routes/scrapeBookRoutes.js";
 
 // fetch book details from DB
 import { fetchBookFromDBController } from "./routes/booksFromDBRoutes.js";
+import client from "./config/redis.js";
 
 // Load environment variables
 dotenv.config();
 
 // Connect to MongoDB
-connectDB();
+// connectDB();
+
+// Connect Redis Client
+await client.connect()
+await client.set('foo','bar');
 
 const app = express();
 
